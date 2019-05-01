@@ -1,0 +1,69 @@
+<div id="clock">
+	<div id="dial">
+		<div id="board">
+			<div id="hour" class="hand"><%= image_tag "hour-hand.bmp" %></div>
+			<div id="minute" class="hand"><%= image_tag "minute-hand.bmp" %></div>
+			<div id="second" class="hand"><%= image_tag "second-hand.bmp" %></div>
+			<div id="dot" class="hand"><%= image_tag "dot.bmp" %></div>
+		</div>
+	</div>
+</div>
+<script>
+	var time;
+	var second = document.getElementById("second");
+	var minute = document.getElementById("minute");
+	var hour = document.getElementById("hour");
+	var sound = new Audio("sound.mp3")
+
+	/*function smooth() {
+		time = new Date();
+
+		second.style.transform = "rotate("+(time.getMilliseconds()*0.006+time.getSeconds()*6)+"deg)";
+		minute.style.transform = "rotate("+(time.getMilliseconds()*0.0001+time.getSeconds()*0.1+time.getMinutes()*6)+"deg)";
+		hour.style.transform = "rotate("+(time.getMilliseconds()*0.0001/12+time.getSeconds()*0.1/12+time.getMinutes()*0.5+time.getHours()*30)+"deg)";
+
+		setTimeout(smooth, 1);
+	}
+
+	smooth();*/
+
+	function secondMove() {
+		second.style.transform = "rotate("+(time.getMilliseconds()*6/50-114+time.getSeconds()*6)+"deg)";
+	}
+
+	function minuteMove() {
+		minute.style.transform = "rotate("+(time.getMilliseconds()*6/50-114+time.getMinutes()*6)+"deg)";
+	}
+
+	function hourMove() {
+		hour.style.transform = "rotate("+(time.getMilliseconds()/100-9.5+time.getMinutes()*0.5+time.getHours()*30)+"deg)";
+	}
+
+	function totalMove() {
+
+		time = new Date();
+		milliseconds = time.getMilliseconds();
+		seconds = time.getSeconds();
+
+		if (milliseconds >= 950) {
+			secondMove();
+		}
+		if (seconds == 59 && milliseconds >= 950) {
+			minuteMove();
+			hourMove();
+		}
+		if (milliseconds >= 0 && milliseconds <= 20) {
+			sound.play();
+		}
+
+		setTimeout(totalMove, 10);
+	}
+
+	time = new Date();
+
+	second.style.transform = "rotate("+(time.getSeconds()*6)+"deg)";
+	minute.style.transform = "rotate("+(time.getMinutes()*6)+"deg)";
+	hour.style.transform = "rotate("+(time.getMinutes()*0.5+time.getHours()*30)+"deg)";
+
+	totalMove();
+</script>

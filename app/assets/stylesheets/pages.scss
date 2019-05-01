@@ -1,3 +1,72 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body,div,img {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: url("flower-back0337.png");
+  background-size: 800px auto;
+}
+#clock {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  margin: 25px auto;
+  background: url("depositphotos_88614714-stock-illustration-frame-gold-ring.bmp");/* edge */
+  background-size: 505px 505px;
+  background-position: -2px -2px;
+  box-shadow: 2px 2px 40px rgba(0,0,0,0.6);
+}
+#clock #dial {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  background-image: url("dial11.bmp"),url("1000_b06d50c11f.jpg");/* dial & board */
+  background-size: 440px 440px, 450px auto;
+  background-position: -20px -20px, 0 0;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6) inset;
+}
+#clock #bord {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: absolute;
+  top: 12.5%;
+  left: 12.5%;
+}
+#clock #board .hand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 50% 50%;
+  /*top: -52px;
+  left: -52px;
+  background: #000;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);*/
+}
+/*#clock #board #second {
+  width: 3px;
+  height: 150px;
+}
+#clock #board #minute {
+  width: 9px;
+  height: 120px;
+}
+#clock #board #hour {
+  width: 15px;
+  height: 90px;
+}
+#clock #board #dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}*/
+#clock #board .hand img {
+  width: 404px;
+  height: 404px;
+  box-shadow: 2px 2px 40px rgba(0,0,0,0.6);
+}
